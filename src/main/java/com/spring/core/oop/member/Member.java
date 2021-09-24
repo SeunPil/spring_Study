@@ -14,9 +14,4 @@ public class Member {
     private Grade grade; //회원 등급
 
 
-    //자바 빈즈 규약
-
-
-
-
 }

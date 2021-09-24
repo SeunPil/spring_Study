@@ -2,8 +2,6 @@ package com.spring.core.oop.member;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class MemberTest {
 
     //테스트 메서드 생성
@@ -14,6 +12,11 @@ class MemberTest {
 
         new Member();
         System.out.println(member);
+
+        // 기본생성자
+        // 모든 필드 초기화 생성자
+        // setter / getter
+        // hashcode / toString
 
     }
 
