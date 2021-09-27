@@ -1,18 +1,19 @@
 package com.spring.core.oop.config;
 
+import com.spring.core.oop.discount.DiscountPolicy;
+import com.spring.core.oop.discount.FixDiscountPolicy;
 import com.spring.core.oop.member.DatabaseMemberRepository;
 import com.spring.core.oop.member.MemberRepository;
 import com.spring.core.oop.member.MemberService;
 import com.spring.core.oop.member.MemoryMemberRepository;
 import com.spring.core.oop.order.OrderService;
-import com.sun.org.apache.xpath.internal.operations.Or;
 
 //객체를 생성하고 필요한 곳에 주입해주는 역할
 public class Appconfig {
 
     //회원저장소를 선택하는 기능
     public MemberRepository memberRepository() {
-        return new DatabaseMemberRepository();
+        return new MemoryMemberRepository();
     }
 
     //회원 서비스 객체 생성해주는 기능
@@ -22,7 +23,12 @@ public class Appconfig {
 
     //주문 서비스 객체 생성 기능
     public OrderService orderService() {
-        return new OrderService(memberRepository());
+        return new OrderService(memberRepository(), discountPolicy());
+    }
+
+    //할인정책 객체 생성 기능
+    public DiscountPolicy discountPolicy() {
+        return new FixDiscountPolicy();
     }
 
 
